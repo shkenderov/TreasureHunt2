@@ -14,12 +14,12 @@ var treasure={};
 var username;
 var sessions = [];
 var detectionRange;
-setTimeout(() => {
+//setTimeout(() => {
 
 
 let db;
 const indexedDB = window.indexedDB;
-let request = indexedDB.open("sessiondb", 1);
+/*let request = indexedDB.open("sessiondb", 1);
 
 request.onsuccess = function(e) {
     console.log("Successfully opened the database!");
@@ -46,7 +46,7 @@ request.onupgradeneeded = e=> {
     for(let i=0; i<sessions.length; i++) {
         objectStore.add(sessions[i]);
     };
-};
+};*/
 
 function query(username){
     //DATABASE QUERY
@@ -150,7 +150,7 @@ document.getElementById('form').addEventListener('click', function(e) {
     //console.log(e.target.id);
     if(e.target.id=="load"){
         username=document.getElementById('name').value;
-        query(username);
+        //query(username);
     }
     if(e.target.id=="help"){
         document.getElementById('help-popover').style.display="block";
@@ -256,10 +256,10 @@ document.getElementById('form').addEventListener('click', function(e) {
 
     }
     else if(e.target.id=="clear"){
-        var transaction = db.transaction(["sessions"], "readwrite");
+        //var transaction = db.transaction(["sessions"], "readwrite");
 
         // report on the success of the transaction completing, when everything is done
-        transaction.oncomplete = function(event) {
+        /*transaction.oncomplete = function(event) {
             alert("database cleared");
         };
 
@@ -276,7 +276,7 @@ document.getElementById('form').addEventListener('click', function(e) {
         objectStoreRequest.onsuccess = function(event) {
             // report the success of our request
             //console.log("request to clear database successful");
-        };
+        };*/
     }
     else if(e.target.id=="reset"){
         let i=0;
@@ -367,13 +367,13 @@ document.getElementById('form').addEventListener('click', function(e) {
             clue3: clue3,
             treasure: treasure
         };
-            sessions.push(tempObj);
-            const transaction2 = db.transaction("sessions","readwrite");
+           // sessions.push(tempObj);
+           // const transaction2 = db.transaction("sessions","readwrite");
 
-            const objectStore2 = transaction2.objectStore('sessions');
+           // const objectStore2 = transaction2.objectStore('sessions');
 
         //  for(let i=0; i<sessions.length; i++) {
-                objectStore2.add(tempObj);
+              //  objectStore2.add(tempObj);
             //};
         startGame=1;
             
@@ -382,7 +382,7 @@ document.getElementById('form').addEventListener('click', function(e) {
         }
         
     );
-}, 500); 
+//}, 500); 
 
     var ProgressFlag=0;
    
